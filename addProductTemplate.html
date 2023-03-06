@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html lang="en" dir="ltr">
+<meta charset='utf-8'>
+<head>
+<title>Add Product</title>
+<script>
+function validateForm(frm)
+{
+return true;
+}
+</script>
+<style>
+</head>
+
+*{
+box-sizing:border-box;
+}
+body{
+   margin:0;
+   background:#294e5a;
+    }
+.container{
+    max-width:600px;
+    margin:auto;
+    background:#fff;
+    overflow:auto;
+    padding:25px 30px;
+    border-radius: 5px;
+    }
+ .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+h2{text-align: center;}
+h2{color:white;}
+</style>
+<div class="topnav">
+  <a  href="/project/index.html"> HOME </a>
+  <a href="/project/selectProduct.html">PRODUCTS</a>
+  <a class='active' href="/project/gstcalculator.html">CALCULATE-GST</a>
+<a href="/project/ProductsView">LIST</a>
+  <a href="/project/aboutus.html">ABOUT</a>
+</div>
+<h2> Add Products </h2> 
+ <div class="container">
+<form  action='/project/addProduct' onsubmit='return validateForm(this)'>
+
+Product Id:
+<input type='text' id='productId' name='productId' maxlength='20' size='21' ><br>
+<br>
+    Product Name:
+<input type='text' id='productName' name='productName' maxlength='20' size='21' ><br>
+<br>
+
+Product Price:
+<input type="number" id="productPrice" min="0"  name="productPrice" maxlength='30' size='31' >
+<br>
+<br>
+Rate Of GST:
+<input type="number" id="gst" min="0" name="gst" maxlength='30' size='31' >
+<br>
+<br>
+Rate Of SGST:
+<input type="number" id="sgst" min="0" name="sgst" maxlength='30' size='31' >
+<br>
+<br> 
+Rate Of CGST:
+<input type="number" id="cgst" min="0" name="cgst" maxlength='30' size='31' >
+<br>
+<br>  
+<button type='submit'>Add</button>&nbsp;&nbsp;&nbsp;
+
+</div>
+</form>
+</body>
+</html>
+

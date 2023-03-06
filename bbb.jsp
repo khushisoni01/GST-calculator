@@ -1,0 +1,196 @@
+<!DOCTYPE>
+<html lang="en" dir="ltr">
+<meta charset='utf-8'>
+<head>
+<title>GST Caclculate</title>
+</head>
+<style>
+*{
+box-sizing:border-box;
+}
+body{
+margin:0;
+background:#294e5a;
+}
+.container{
+max-width:800px;
+margin:auto;
+background:#fff;
+overflow:auto;
+padding:25px 30px;
+border-radius: 5px;
+}
+.topnav {
+overflow: hidden;
+background-color: #333;
+}
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+.topnav a:hover {
+background-color: #ddd;
+color: black;
+}
+.topnav a.active {
+background-color: #04AA6D;
+color: white;
+}
+h2{text-align: center;}
+h2{color:white;}
+</style>
+<div class="topnav">
+<a  href="/project/index.html"> Home </a>
+<a class="active" href="/project/selectProduct.html">Products</a>
+<a href="/project/choice.html">Calculate-GST</a>
+<a href="/project/aboutus.html">About</a>  
+</div>
+<h2> ONLINE GST CALCULATOR </h2> 
+ <div class="container">
+      <h1> Calculate GST</h1>
+Product Name:
+<% 
+String name=request.getParameter("name");
+String GSTRate=request.getParameter("GST");
+
+%>
+
+<input type='text' id='nm' name='nm' align="center" value="<%= name%>" ><br>
+<br>
+Product Price:
+<input type="number" id="Text1" min="0"  name="Text1">
+<br>
+<br>
+Rate Of GST:
+<input type="number" id="Text2" min="0" name="Text2" value="<%= GSTRate	%>">
+<br>
+<br>
+<input type="button" name="clickbtn" value="GST Amount" onclick="add_number()">
+&nbsp;
+<input type="button" name="clickbtn" value="GST inclusive" onclick="inclusive()"> <style=color:'gray';text:'white'>
+&nbsp;
+<br>
+<br>
+
+GST Tax Amount :
+<input type="number" id="txtresult" min="0" name="TextBox3" >
+ <br>
+<br>
+SGST Tax Amount :
+<input type="number" id="txtresult1" min="0" name="TextBox3" >
+ <br>
+<br>
+CGST Tax Amount :
+<input type="number" id="txtresult2" min="0" name="TextBox3" >
+ <br>
+<br>
+Total Amount :
+<input type="number" id="totalA" min="0" name="TextBox3">
+<br>
+<br>
+<script>
+
+            function add_number() {
+
+                var f = document.getElementById("Text1").value;
+                if (f == null || f == "") {
+                    alert("Amount Requried");
+                    Text1.focus();
+                    return false;
+                }
+                if (f < 0) {
+                    alert("Invalid Amount");
+                    Text1.focus();
+                    return false;
+                }
+                var first_number;
+                first_number = f;
+                var s = document.getElementById("Text2").value;
+                if (s == null || s == "") {
+
+                    alert("GST Percent Requried");
+                    Text2.focus();
+                    return false;
+                }
+                if (s < 0) {
+
+
+                    alert(" Invalid GST Percent");
+
+                    Text2.focus();
+
+                    return false;
+}
+                var second_number;
+                second_number = s;
+
+                var result = (first_number * second_number) / 100;
+                   
+
+                document.getElementById("txtresult").value = result;
+                var final;
+                final=result/2;
+                 document.getElementById("txtresult1").value = final;
+                document.getElementById("txtresult2").value = final;
+              
+            }
+
+                        function inclusive() {
+
+                var f = document.getElementById("Text1").value;
+                if (f == null || f == "" ) {
+                    alert("Amount Requried ");
+                    Text1.focus();
+                    return false;
+                }
+                if ( f < 0) {
+                    alert("Invalid Amount");
+                    Text1.focus();
+                    return false;
+                }
+                var first_number;
+                first_number = parseInt(f);
+                var s = document.getElementById("Text2").value;
+                if (s == null || s == "" ) {
+
+                    alert("GST Percent Requried ");
+                    Text2.focus();
+                    return false;
+                }
+                if ( s < 0) {
+
+alert(" Invalid GST Percent");
+Text2.focus();
+return false;
+}
+                var secondn;
+                secondn = s;
+                var result = parseInt((first_number * secondn) / 100);
+                var tm = 0;
+                tm = first_number + result;
+
+                document.getElementById("totalA").value = tm;
+            }
+            function ok()
+            {
+                document.getElementById('okbotton').submit();
+            }
+
+
+
+
+
+
+</script>
+<br>
+<br>
+<a style =color:black href='gstcalculator.html'>OK</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a style =color:black href='selectProduct.html'>Back</a>
+</div>
+</form>
+</body>
+</html>
